@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class npc_vehicle_controller : MonoBehaviour
+public class Npc_vehicle_controller : MonoBehaviour
 {
     public float force;
     public Rigidbody vehicleObject;
@@ -16,10 +16,9 @@ public class npc_vehicle_controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Vertical") == 1)
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
-            vehicleObject.AddForce(transform.forward * force);
-            Debug.Log("yoo");
+            vehicleObject.AddRelativeForce(Vector3.right * force);
         }
     }
 }
