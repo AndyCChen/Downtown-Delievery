@@ -18,7 +18,7 @@ public class Npc_vehicle_controller : MonoBehaviour
     {
         if (Input.GetAxisRaw("Vertical") > 0)
         {
-            vehicleObject.AddRelativeForce(Vector3.right * force);
+            vehicleObject.AddRelativeForce(Vector3.forward * force);
         }
     }
 }
