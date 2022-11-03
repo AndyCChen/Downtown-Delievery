@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Npc_vehicle_controller : MonoBehaviour
@@ -11,12 +9,6 @@ public class Npc_vehicle_controller : MonoBehaviour
     [SerializeField] private WheelCollider back_right_wheel;
 
     public float force;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-         
-    }
 
     // Update is called once per frame
     void FixedUpdate()
