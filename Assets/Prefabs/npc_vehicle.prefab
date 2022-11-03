@@ -753,8 +753,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef692b699faa244f79ddd7780a9dc9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 50000
   vehicleObject: {fileID: 800422487292335804}
+  front_left_wheel: {fileID: 8708430798325986973}
+  front_right_wheel: {fileID: 6265138903196348050}
+  back_left_wheel: {fileID: 7840583760786606630}
+  back_right_wheel: {fileID: 6492754697199652040}
+  force: 50000
 --- !u!1 &6858786534971412679
 GameObject:
   m_ObjectHideFlags: 0
