@@ -1,58 +1,82 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Npc_vehicle_controller : MonoBehaviour
 {
-    [SerializeField] private WheelCollider front_left_wheel;
-    [SerializeField] private WheelCollider front_right_wheel;
-    [SerializeField] private WheelCollider back_left_wheel;
-    [SerializeField] private WheelCollider back_right_wheel;
+    [SerializeField] private List<AxleInfo> axleInfos;
 
     public Rigidbody vehicle_rb;
     public GameObject centerOfMassPosition;
 
-    public float acceleration;
-    public float breakingForce;
+    public float maxMotorTorque;
+    public float maxBreakingTorque;
     public float maxTurnAngle;
 
-    private float currentAcceleration;
-    private float currentBreakingForce;
+    private float currentMotorTorque;
+    private float currentBreakingTorque;
     private float currentTurnAngle;
 
     private void Start()
     {
         vehicle_rb.GetComponent<Rigidbody>().centerOfMass = centerOfMassPosition.transform.localPosition;
-        Debug.Log(centerOfMassPosition.transform.localPosition);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
-        Debug.Log(currentAcceleration);
+        currentMotorTorque = maxMotorTorque * Input.GetAxis("Vertical");
+        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
 
-        // apply break force if spacebar is held
+        // update current break force if spacebar is held
         if (Input.GetKey(KeyCode.Space))
         {
-            currentBreakingForce = breakingForce;
+            currentBreakingTorque = maxBreakingTorque;
 
         } else
         {
-            currentBreakingForce = 0f;
+            currentBreakingTorque = 0f;
         }
 
-        // apply acceleration to front wheels
-        front_left_wheel.motorTorque = currentAcceleration;
-        front_right_wheel.motorTorque = currentAcceleration;
+        // apply all acceleration, turn angles, and breaking forces to each axle
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            if (axleInfo.isSteering)
+            {
+                axleInfo.leftWheel.steerAngle = currentTurnAngle;
+                axleInfo.rightWheel.steerAngle = currentTurnAngle;
+            }
+            if (axleInfo.isMotorized)
+            {
+                axleInfo.leftWheel.motorTorque = currentMotorTorque;
+                axleInfo.rightWheel.motorTorque = currentMotorTorque;
+            }
 
-        // apply current break force to all wheels
-        front_left_wheel.brakeTorque = currentBreakingForce;
-        front_right_wheel.brakeTorque = currentBreakingForce;
-        back_left_wheel.brakeTorque = currentBreakingForce;
-        back_right_wheel.brakeTorque = currentBreakingForce;
+            axleInfo.leftWheel.brakeTorque = currentBreakingTorque;
+            axleInfo.rightWheel.brakeTorque = currentBreakingTorque;
 
-        // set current turning angle
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
-        front_left_wheel.steerAngle = currentTurnAngle;
-        front_right_wheel.steerAngle = currentTurnAngle;
+            applyWheelVisuals(axleInfo.leftWheel, axleInfo.leftTransform);
+            applyWheelVisuals(axleInfo.rightWheel, axleInfo.rightTransform);
+        }
     }
+
+    private void applyWheelVisuals(WheelCollider collider, Transform trans)
+    {
+        Vector3 position;
+        Quaternion rotation;
+        collider.GetWorldPose(out position, out rotation);
+
+        trans.position = position;
+        trans.rotation = rotation;
+    }
+}
+
+[System.Serializable]
+public class AxleInfo
+{
+    public WheelCollider leftWheel;
+    public WheelCollider rightWheel;
+    public Transform leftTransform;
+    public Transform rightTransform;
+    public bool isMotorized;
+    public bool isSteering;
 }
