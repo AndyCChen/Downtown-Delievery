@@ -2,58 +2,79 @@ using UnityEngine;
 
 public class Npc_vehicle_AI : MonoBehaviour
 {
-    [SerializeField] private Transform vehicle_transform;
-    [SerializeField] private float rayCastDistance;
+    public enum AIMode { chasePlayer, followWaypoint }
 
-    public enum VehicleStates 
+    [Header("Ai_mode")]
+    public AIMode aiMode;
+
+    // target position
+    private Vector3 targetPosition = Vector3.zero;
+
+    // target transform object
+    private Transform targetTransform = null;
+
+    private Vehicle_controller vehicle_controller;
+
+    private void Awake()
     {
-        forward, 
-        backward, 
-        left,
-        right
-    };
-
-    private VehicleStates vehicle_state;
-    private bool isRayCollisionDetected;
+        vehicle_controller = GetComponent<Vehicle_controller>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        vehicle_state = VehicleStates.forward;
-        isRayCollisionDetected =  false;
+       
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        castVehicleRay();
+        switch (aiMode)
+        {
+            case AIMode.chasePlayer:
+                FollowPlayer();
+                break;
+            case AIMode.followWaypoint:
+                break;
+        }
+
+        float accelerationInput = 1.0f;
+        float steeringInput = TurnToTarget();
+        bool breakingInput = false;
+        vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput);
     }
 
-    private void castVehicleRay()
+    void FollowPlayer()
     {
-        Vector3 forward = vehicle_transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(vehicle_transform.position, forward, rayCastDistance))
+        if (targetTransform == null)
         {
-            Debug.DrawRay(vehicle_transform.position, forward * ((int)rayCastDistance), Color.red);
-
-            // choose to turn left or right randomly
-            if (!isRayCollisionDetected)
-            {
-                int rand = (int)Random.Range(0, 2);
-                vehicle_state = rand == 1 ? VehicleStates.left : VehicleStates.right;
-            }
-
-            isRayCollisionDetected = true;
+            targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        else
+
+        if (targetTransform != null)
         {
-            isRayCollisionDetected = false;
-            vehicle_state = VehicleStates.forward;
+            targetPosition = targetTransform.position;
         }
     }
 
-    public VehicleStates GetVehicleState()
+    float TurnToTarget()
     {
-        return vehicle_state;
+        Vector3 position = transform.GetChild(0).position;
+
+        // get vector that points to the target
+        Vector3 vectorToTarget = targetPosition - position;
+        vectorToTarget.Normalize();
+
+        Vector3 forward = transform.GetChild(0).forward;
+        Vector3 up = transform.GetChild(0).up;
+
+        // get angle towards the target
+        float angleToTarget = Vector3.SignedAngle(forward, vectorToTarget, up);
+        //angleToTarget *= -1;
+        
+        float steerValue = angleToTarget / 45.0f;
+        steerValue = Mathf.Clamp(steerValue ,-1.0f, 1.0f);
+        Debug.Log(steerValue);
+        return steerValue;
     }
 }
