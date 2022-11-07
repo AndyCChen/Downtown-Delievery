@@ -679,7 +679,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &4049943851637026446
 GameObject:
@@ -741,7 +741,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2.5
   m_Enabled: 1
 --- !u!1 &4529145905004454831
 GameObject:
@@ -803,7 +803,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!1 &4912344396942124962
 GameObject:
@@ -867,7 +867,8 @@ MonoBehaviour:
   vehicle_object: {fileID: 4912344396942124962}
   vehicle_rb: {fileID: 800422487292335804}
   centerOfMassPosition: {fileID: 5822643767582060407}
-  maxMotorTorque: 200
+  target: {fileID: 0}
+  maxMotorTorque: 1000
   maxBreakingTorque: 800
   maxTurnAngle: 30
 --- !u!114 &-5798556076298389438
@@ -882,8 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad4104f56bf4a24c92c736fc081195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicle_transform: {fileID: 6574309914004461721}
-  rayCastDistance: 20
+  aiMode: 0
 --- !u!1 &5428132505442357848
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5822643767582060407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.45277184, z: -0.014339571}
+  m_LocalPosition: {x: -0.00014339571, y: -0.633, z: 0.509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1007,7 +1007,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2.5
   m_Enabled: 1
 --- !u!1 &7200286395837400579
 GameObject:
