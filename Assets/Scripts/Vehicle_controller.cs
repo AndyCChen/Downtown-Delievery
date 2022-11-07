@@ -4,7 +4,6 @@ using UnityEngine;
 public class Vehicle_controller : MonoBehaviour
 {
     [SerializeField] private List<AxleInfo> axleInfos;
-    [SerializeField] private GameObject vehicle_object;
 
     public Rigidbody vehicle_rb;
     public GameObject centerOfMassPosition;
