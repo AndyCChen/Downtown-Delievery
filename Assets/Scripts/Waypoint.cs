@@ -23,7 +23,7 @@ public class Waypoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("trigger enter " + other.transform.name);
-        CarController hover = other.gameObject.GetComponent<CarController>();
+        Vehicle_controller hover = other.gameObject.GetComponent<Vehicle_controller>();
         if (hover != null)
         {
             if (hover.target == this)

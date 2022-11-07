@@ -1,56 +1,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc_vehicle_controller : MonoBehaviour
+public class Vehicle_controller : MonoBehaviour
 {
     [SerializeField] private List<AxleInfo> axleInfos;
     [SerializeField] private GameObject vehicle_object;
 
     public Rigidbody vehicle_rb;
     public GameObject centerOfMassPosition;
+    public Waypoint target;
 
     public float maxMotorTorque;
     public float maxBreakingTorque;
     public float maxTurnAngle;
 
+    private float accelerationInput;
+    private float steeringInput;
+    private bool breakingInput;
+
     private float currentMotorTorque;
     private float currentBreakingTorque;
     private float currentTurnAngle;
 
-    private Npc_vehicle_AI npc_vehicle_ai;
-
     private void Start()
     {
         vehicle_rb.centerOfMass = centerOfMassPosition.transform.localPosition;
-        npc_vehicle_ai = vehicle_object.GetComponent<Npc_vehicle_AI>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        handleVehicleBehavior();
-        applyWheelForces();
+        ApplyWheelForces();
     }
 
-    private void handleVehicleBehavior()
+    private void ApplyWheelForces()
     {
-        if (npc_vehicle_ai.GetVehicleState() == Npc_vehicle_AI.VehicleStates.forward)
-        {
-            currentMotorTorque = maxMotorTorque;
-            currentTurnAngle = 0.0f;
-        }
-        else if (npc_vehicle_ai.GetVehicleState() == Npc_vehicle_AI.VehicleStates.left)
-        {
-            currentTurnAngle = -maxTurnAngle;
-        }
-        else if (npc_vehicle_ai.GetVehicleState() == Npc_vehicle_AI.VehicleStates.right)
-        {
-            currentTurnAngle = maxTurnAngle;
-        }
-    }
+        currentMotorTorque = maxMotorTorque * accelerationInput;
+        currentTurnAngle = maxTurnAngle * steeringInput;
+        currentBreakingTorque = breakingInput ? maxBreakingTorque : 0;
 
-    private void applyWheelForces()
-    {
         // apply all acceleration, turn angles, and breaking forces to each axle
         foreach (AxleInfo axleInfo in axleInfos)
         {
@@ -65,12 +53,15 @@ public class Npc_vehicle_controller : MonoBehaviour
                 axleInfo.rightWheel.motorTorque = currentMotorTorque;
             }
 
-            applyWheelVisuals(axleInfo.leftWheel, axleInfo.leftTransform);
-            applyWheelVisuals(axleInfo.rightWheel, axleInfo.rightTransform);
+            axleInfo.leftWheel.brakeTorque = currentBreakingTorque;
+            axleInfo.rightWheel.brakeTorque = currentBreakingTorque;
+
+            ApplyWheelVisuals(axleInfo.leftWheel, axleInfo.leftTransform);
+            ApplyWheelVisuals(axleInfo.rightWheel, axleInfo.rightTransform);
         }
     }
 
-    private void applyWheelVisuals(WheelCollider collider, Transform trans)
+    private void ApplyWheelVisuals(WheelCollider collider, Transform trans)
     {
         Vector3 position;
         Quaternion rotation;
@@ -78,6 +69,13 @@ public class Npc_vehicle_controller : MonoBehaviour
 
         trans.position = position;
         trans.rotation = rotation;
+    }
+
+    public void SetInput(float accelInput, float steerInput, bool breakInput)
+    {
+        accelerationInput = accelInput;
+        steeringInput = steerInput;
+        breakingInput = breakInput;
     }
 }
 

@@ -1027,8 +1027,8 @@ MonoBehaviour:
   vehicle_object: {fileID: 8886994876996011733}
   vehicle_rb: {fileID: 6372813677841347793}
   centerOfMassPosition: {fileID: 4695309991457718410}
-  maxMotorTorque: 2500
-  maxBreakingTorque: 2000
+  maxMotorTorque: 200
+  maxBreakingTorque: 800
   maxTurnAngle: 30
 --- !u!114 &-3075077547055468693
 MonoBehaviour:
