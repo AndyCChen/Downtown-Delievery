@@ -8,6 +8,6 @@ public class Vehicle_spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(vehiclePrefabs[((int)Random.Range(0.0f, 17.0f))], new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(vehiclePrefabs[((int)Random.Range(0.0f, 17.0f))], transform.position, transform.rotation);
     }
 }

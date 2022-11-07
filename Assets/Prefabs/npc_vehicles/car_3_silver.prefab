@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424808509616523548}
   - component: {fileID: 2953252947317259832}
+  - component: {fileID: 6972775670159304022}
   m_Layer: 0
   m_Name: car_3_silver
   m_TagString: Untagged
@@ -204,11 +205,26 @@ MonoBehaviour:
     rightTransform: {fileID: 6347136943022586859}
     isMotorized: 0
     isSteering: 0
+  vehicle_object: {fileID: 2482869744250452333}
   vehicle_rb: {fileID: 8881345606075298081}
   centerOfMassPosition: {fileID: 2513033270770330376}
   maxMotorTorque: 2500
   maxBreakingTorque: 2000
   maxTurnAngle: 30
+--- !u!114 &6972775670159304022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482869744250452333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad4104f56bf4a24c92c736fc081195b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicle_transform: {fileID: 3298506906974403870}
+  rayCastDistance: 20
 --- !u!1 &2513033270770330376
 GameObject:
   m_ObjectHideFlags: 0
