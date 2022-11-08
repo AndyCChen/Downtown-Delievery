@@ -43,11 +43,32 @@ public class Npc_vehicle_AI : MonoBehaviour
                 GoToWaypoint();
                 break;
         }
+        float angleToTarget;
 
-        float accelerationInput = 1.0f;
-        float steeringInput = TurnToTarget();
-        bool breakingInput = false;
+        float breakingInput = 0.0f;
+        float steeringInput = TurnToTarget(out angleToTarget);
+        float accelerationInput = ApplyAcceleration(steeringInput, angleToTarget);
+
         vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput);
+    }
+
+    private float ApplyAcceleration(float steerInput, float angleToTarget)
+    {
+        // apply full gas if car is facing away from target
+        if (angleToTarget >= 90 || angleToTarget <= -90)
+        {
+            return 1.0f;
+        }
+        // apply full gas if going in a straight line
+        else if (steerInput == 0)
+        {
+            return 1.0f;
+        }
+        // reduce gas if steering
+        else
+        {
+            return 1.05f - Mathf.Abs(steerInput) / 1.0f;
+        }
     }
 
     private void FollowPlayer()
@@ -91,7 +112,7 @@ public class Npc_vehicle_AI : MonoBehaviour
         return allWaypoints.OrderBy(node => Vector3.Distance(vehicleTransform.position, node.transform.position)).FirstOrDefault();
     }
 
-    private float TurnToTarget()
+    private float TurnToTarget(out float angleTowardsTarget)
     {
         // get vector that points to the target
         Vector3 vectorToTarget = targetPosition - vehicleTransform.position;
@@ -99,10 +120,11 @@ public class Npc_vehicle_AI : MonoBehaviour
 
         // get angle towards the target
         float angleToTarget = Vector3.SignedAngle(vehicleTransform.forward, vectorToTarget, vehicleTransform.up);
-        
+        angleTowardsTarget = angleToTarget;
+
         float steerValue = angleToTarget / 45.0f;
         steerValue = Mathf.Clamp(steerValue , -1.0f, 1.0f);
-        Debug.Log(steerValue);
+        
         return steerValue;
     }
 }

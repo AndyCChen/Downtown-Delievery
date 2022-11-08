@@ -92,7 +92,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 2.5
   m_Enabled: 1
 --- !u!1 &817371738007817365
 GameObject:
@@ -367,7 +367,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 2
+    m_Stiffness: 2.5
   m_Enabled: 1
 --- !u!1 &3846207506859192906
 GameObject:
@@ -1024,11 +1024,10 @@ MonoBehaviour:
     rightTransform: {fileID: 1893098466210486509}
     isMotorized: 0
     isSteering: 0
-  vehicle_object: {fileID: 8886994876996011733}
   vehicle_rb: {fileID: 6372813677841347793}
   centerOfMassPosition: {fileID: 4695309991457718410}
   target: {fileID: 0}
-  maxMotorTorque: 1000
+  maxMotorTorque: 900
   maxBreakingTorque: 800
   maxTurnAngle: 30
 --- !u!114 &4352289870848030316
@@ -1043,4 +1042,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad4104f56bf4a24c92c736fc081195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiMode: 0
+  aiMode: 1

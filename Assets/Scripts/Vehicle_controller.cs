@@ -15,7 +15,7 @@ public class Vehicle_controller : MonoBehaviour
 
     private float accelerationInput;
     private float steeringInput;
-    private bool breakingInput;
+    private float breakingInput;
 
     private float currentMotorTorque;
     private float currentBreakingTorque;
@@ -36,7 +36,7 @@ public class Vehicle_controller : MonoBehaviour
     {
         currentMotorTorque = maxMotorTorque * accelerationInput;
         currentTurnAngle = maxTurnAngle * steeringInput;
-        currentBreakingTorque = breakingInput ? maxBreakingTorque : 0;
+        currentBreakingTorque = breakingInput * maxBreakingTorque;
 
         // apply all acceleration, turn angles, and breaking forces to each axle
         foreach (AxleInfo axleInfo in axleInfos)
@@ -70,7 +70,7 @@ public class Vehicle_controller : MonoBehaviour
         trans.rotation = rotation;
     }
 
-    public void SetInput(float accelInput, float steerInput, bool breakInput)
+    public void SetInput(float accelInput, float steerInput, float breakInput)
     {
         accelerationInput = accelInput;
         steeringInput = steerInput;

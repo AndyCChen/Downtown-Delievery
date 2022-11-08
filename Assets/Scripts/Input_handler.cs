@@ -16,6 +16,6 @@ public class Input_handler : MonoBehaviour
         float steeringInput = Input.GetAxis("Horizontal");
         bool breakingInput = Input.GetKey(KeyCode.Space);
 
-        vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput);
+        vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput ? 1.0f : 0);
     }
 }
