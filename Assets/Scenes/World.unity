@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,6 +409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -246926934985586012, guid: 6baa4b976be34e14c98d3cf938d760ac, type: 3}
+      propertyPath: aiMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2482869744250452333, guid: 6baa4b976be34e14c98d3cf938d760ac, type: 3}
       propertyPath: m_Name
       value: car_3_purple
@@ -466,6 +470,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4352289870848030316, guid: 8703e74988fb9b44c8ddcdc0d093722f, type: 3}
+      propertyPath: aiMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5512518864220016842, guid: 8703e74988fb9b44c8ddcdc0d093722f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -954,6 +962,7 @@ MonoBehaviour:
   waypoint_neighbors:
   - {fileID: 2079840080}
   - {fileID: 1905497620}
+  minDistanceToWaypoint: 2
 --- !u!4 &1291766348
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,6 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint_neighbors:
   - {fileID: 1291766347}
+  minDistanceToWaypoint: 1
 --- !u!4 &1896524493
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,6 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint_neighbors:
   - {fileID: 1896524492}
+  minDistanceToWaypoint: 3
 --- !u!1 &2079840079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint_neighbors:
   - {fileID: 1905497620}
+  minDistanceToWaypoint: 2.5
 --- !u!4 &2079840081
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class Npc_vehicle_AI : MonoBehaviour
 {
@@ -7,27 +8,31 @@ public class Npc_vehicle_AI : MonoBehaviour
     [Header("Ai_mode")]
     public AIMode aiMode;
 
-    // target position
+    // target position and target transform object
     private Vector3 targetPosition = Vector3.zero;
-
-    // target transform object
     private Transform targetTransform = null;
 
+    private Transform vehicleTransform;
+
     private Vehicle_controller vehicle_controller;
+
+    private Waypoint_node currentWaypoint = null;
+    private Waypoint_node[] allWaypoints;
 
     private void Awake()
     {
         vehicle_controller = GetComponent<Vehicle_controller>();
+        allWaypoints = FindObjectsOfType<Waypoint_node>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
+       vehicleTransform = transform.GetChild(0);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         switch (aiMode)
         {
@@ -35,6 +40,7 @@ public class Npc_vehicle_AI : MonoBehaviour
                 FollowPlayer();
                 break;
             case AIMode.followWaypoint:
+                GoToWaypoint();
                 break;
         }
 
@@ -44,7 +50,7 @@ public class Npc_vehicle_AI : MonoBehaviour
         vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput);
     }
 
-    void FollowPlayer()
+    private void FollowPlayer()
     {
         if (targetTransform == null)
         {
@@ -57,23 +63,45 @@ public class Npc_vehicle_AI : MonoBehaviour
         }
     }
 
-    float TurnToTarget()
+    private void GoToWaypoint()
     {
-        Vector3 position = transform.GetChild(0).position;
+        // select nearest waypoint to go to if currentWaypoint is null
+        if (currentWaypoint == null)
+        {
+            currentWaypoint = GetClosestWaypoint();
+        }
 
+        if (currentWaypoint != null)
+        {
+            // set target position to be the waypoint
+            targetPosition = currentWaypoint.transform.position;
+
+            float distanceToWaypoint = Vector3.Distance(vehicleTransform.position, targetPosition);
+
+            // if distance to waypoint is within minDistanceToWaypoint, travel to the next neighboring waypoint at random
+            if (distanceToWaypoint <= currentWaypoint.minDistanceToWaypoint)
+            {
+                currentWaypoint = currentWaypoint.waypoint_neighbors[Random.Range(0, currentWaypoint.waypoint_neighbors.Length)];
+            }
+        }
+    }
+
+    private Waypoint_node GetClosestWaypoint()
+    {
+        return allWaypoints.OrderBy(node => Vector3.Distance(vehicleTransform.position, node.transform.position)).FirstOrDefault();
+    }
+
+    private float TurnToTarget()
+    {
         // get vector that points to the target
-        Vector3 vectorToTarget = targetPosition - position;
+        Vector3 vectorToTarget = targetPosition - vehicleTransform.position;
         vectorToTarget.Normalize();
 
-        Vector3 forward = transform.GetChild(0).forward;
-        Vector3 up = transform.GetChild(0).up;
-
         // get angle towards the target
-        float angleToTarget = Vector3.SignedAngle(forward, vectorToTarget, up);
-        //angleToTarget *= -1;
+        float angleToTarget = Vector3.SignedAngle(vehicleTransform.forward, vectorToTarget, vehicleTransform.up);
         
         float steerValue = angleToTarget / 45.0f;
-        steerValue = Mathf.Clamp(steerValue ,-1.0f, 1.0f);
+        steerValue = Mathf.Clamp(steerValue , -1.0f, 1.0f);
         Debug.Log(steerValue);
         return steerValue;
     }
