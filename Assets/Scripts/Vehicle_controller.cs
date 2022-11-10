@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Vehicle_controller : MonoBehaviour
 {
     [SerializeField] private List<AxleInfo> axleInfos;
@@ -23,12 +23,17 @@ public class Vehicle_controller : MonoBehaviour
 
     private void Start()
     {
+        
         vehicle_rb.centerOfMass = centerOfMassPosition.transform.localPosition;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         ApplyWheelForces();
     }
 
@@ -37,7 +42,10 @@ public class Vehicle_controller : MonoBehaviour
         currentMotorTorque = maxMotorTorque * accelerationInput;
         currentTurnAngle = maxTurnAngle * steeringInput;
         currentBreakingTorque = breakingInput * maxBreakingTorque;
-
+        //if (Input.GetKey(KeyCode.Escape))
+        //{
+        //    SceneManager.LoadScene("Main Menu");
+        //}
         // apply all acceleration, turn angles, and breaking forces to each axle
         foreach (AxleInfo axleInfo in axleInfos)
         {
