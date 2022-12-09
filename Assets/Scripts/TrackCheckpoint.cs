@@ -6,6 +6,7 @@ public class TrackCheckpoint : MonoBehaviour
 {
     private int nextCheckPointIndex;
     private List<CheckpointSingle> checkpointSingleList;
+    
     private void Awake()
     {
         Transform checkpointsTransform = transform.Find("CheckPoints");
