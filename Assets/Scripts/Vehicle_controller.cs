@@ -42,10 +42,7 @@ public class Vehicle_controller : MonoBehaviour
         currentMotorTorque = maxMotorTorque * accelerationInput;
         currentTurnAngle = maxTurnAngle * steeringInput;
         currentBreakingTorque = breakingInput * maxBreakingTorque;
-        //if (Input.GetKey(KeyCode.Escape))
-        //{
-        //    SceneManager.LoadScene("Main Menu");
-        //}
+
         // apply all acceleration, turn angles, and breaking forces to each axle
         foreach (AxleInfo axleInfo in axleInfos)
         {

@@ -7,6 +7,8 @@ public class Npc_vehicle_AI : MonoBehaviour
 
     [Header("Ai_mode")]
     public AIMode aiMode;
+    public Rigidbody vehicle_rb;
+    public float maxVelocity;
 
     // target position and target transform object
     private Vector3 targetPosition = Vector3.zero;
@@ -18,6 +20,12 @@ public class Npc_vehicle_AI : MonoBehaviour
 
     private Waypoint_node currentWaypoint = null;
     private Waypoint_node[] allWaypoints;
+
+    private float angleToTarget;
+    private float breakingInput;
+    private float steeringInput;
+    private float accelerationInput;
+    private float distanceToCurrentWaypoint;
 
     private void Awake()
     {
@@ -43,13 +51,35 @@ public class Npc_vehicle_AI : MonoBehaviour
                 GoToWaypoint();
                 break;
         }
-        float angleToTarget;
 
-        float breakingInput = 0.0f;
-        float steeringInput = TurnToTarget(out angleToTarget);
-        float accelerationInput = ApplyAcceleration(steeringInput, angleToTarget);
+        breakingInput = 0.0f;
+        steeringInput = TurnToTarget(out angleToTarget);
+        accelerationInput = ApplyAcceleration(steeringInput, angleToTarget);
+
+        Debug.Log(distanceToCurrentWaypoint);
+        if (distanceToCurrentWaypoint <= currentWaypoint.minBreakingDistance)
+        {
+            LimitMaxVelocity(currentWaypoint.maxTurningVelocity);
+        }
+        // limit max velocity of vehicle
+        else if (vehicle_rb.velocity.magnitude > maxVelocity)
+        {
+            LimitMaxVelocity(maxVelocity);
+        }
 
         vehicle_controller.SetInput(accelerationInput, steeringInput, breakingInput);
+    }
+
+    private void LimitMaxVelocity(float maxVelocity)
+    {
+        if (vehicle_rb.velocity.magnitude != 0)
+        {
+            float carVelocityToMaxVelocityDifference = vehicle_rb.velocity.magnitude - maxVelocity;
+
+            accelerationInput = 0;
+            breakingInput = carVelocityToMaxVelocityDifference / 5;
+            breakingInput = Mathf.Clamp(breakingInput, -1.0f, 1.0f);
+        }
     }
 
     private float ApplyAcceleration(float steerInput, float angleToTarget)
@@ -97,10 +127,10 @@ public class Npc_vehicle_AI : MonoBehaviour
             // set target position to be the waypoint
             targetPosition = currentWaypoint.transform.position;
 
-            float distanceToWaypoint = Vector3.Distance(vehicleTransform.position, targetPosition);
+            distanceToCurrentWaypoint = Vector3.Distance(vehicleTransform.position, targetPosition);
 
             // if distance to waypoint is within minDistanceToWaypoint, travel to the next neighboring waypoint at random
-            if (distanceToWaypoint <= currentWaypoint.minDistanceToWaypoint)
+            if (distanceToCurrentWaypoint <= currentWaypoint.minDistanceToWaypoint)
             {
                 currentWaypoint = currentWaypoint.waypoint_neighbors[Random.Range(0, currentWaypoint.waypoint_neighbors.Length)];
             }

@@ -1043,3 +1043,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiMode: 1
+  vehicle_rb: {fileID: 6372813677841347793}
+  maxVelocity: 15

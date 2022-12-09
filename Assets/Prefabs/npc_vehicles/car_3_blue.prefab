@@ -224,6 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiMode: 1
+  vehicle_rb: {fileID: 8881345606075298081}
+  maxVelocity: 15
 --- !u!1 &2513033270770330376
 GameObject:
   m_ObjectHideFlags: 0
