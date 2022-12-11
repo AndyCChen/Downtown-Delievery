@@ -56,7 +56,7 @@ public class Npc_vehicle_AI : MonoBehaviour
         steeringInput = TurnToTarget(out angleToTarget);
         accelerationInput = ApplyAcceleration(steeringInput, angleToTarget);
 
-        Debug.Log(distanceToCurrentWaypoint);
+        //Debug.Log(distanceToCurrentWaypoint);
         if (distanceToCurrentWaypoint <= currentWaypoint.minBreakingDistance)
         {
             LimitMaxVelocity(currentWaypoint.maxTurningVelocity);

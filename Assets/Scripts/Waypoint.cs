@@ -33,20 +33,27 @@ public class Waypoint : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        target = next.target;
-        current = target;
+    {   
+        if(other.tag == "Player")
+        {
+            Debug.Log("Player inside");
+            target = next.target;
+            current = target;
+            check = true;
+        }
+        
+        
         //GameObject.Find("Arrow").transform.LookAt(next.target);
-        check = true;
-       // Debug.Log("trigger enter " + other.transform.name);
+
+        // Debug.Log("trigger enter " + other.transform.name);
         //Vehicle_controller hover = other.gameObject.GetComponent<Vehicle_controller>();
-        
-                //hover.target = next;
-                //next.GetComponent<MeshRenderer>().material.color = Color.red;
-                //GetComponent<MeshRenderer>().material.color = Color.white;
-                //Debug.Log("next target is : " + next.target);
-        
-                //GameObject.Find("Arrow1").transform.LookAt(next.target);
-           
+
+        //hover.target = next;
+        //next.GetComponent<MeshRenderer>().material.color = Color.red;
+        //GetComponent<MeshRenderer>().material.color = Color.white;
+        //Debug.Log("next target is : " + next.target);
+
+        //GameObject.Find("Arrow1").transform.LookAt(next.target);
+
     }
 }

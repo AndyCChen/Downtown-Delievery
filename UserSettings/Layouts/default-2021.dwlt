@@ -19,9 +19,15 @@ MonoBehaviour:
     width: 1920
     height: 1007
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Scene
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 371}
+=======
+  m_Title: Project
+  m_RootView: {fileID: 7}
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> refs/remotes/origin/master
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -39,6 +45,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 363
     y: 0
     width: 1103
@@ -50,6 +57,18 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 1
+=======
+    x: 1144.8
+    y: 0
+    width: 416.79993
+    height: 593.6
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  m_Selected: 0
+>>>>>>> refs/remotes/origin/master
   m_LastSelected: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -70,12 +89,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 957
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 101
+=======
+    width: 2048
+    height: 1018.80005
+  m_MinSize: {x: 400, y: 200}
+  m_MaxSize: {x: 32384, y: 16192}
+  vertical: 0
+  controlID: 102
+>>>>>>> refs/remotes/origin/master
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -93,13 +121,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1466
     y: 0
+<<<<<<< HEAD
     width: 454
     height: 957
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
+=======
+    width: 486.40002
+    height: 1018.80005
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+>>>>>>> refs/remotes/origin/master
   m_Panes:
-  - {fileID: 13}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &5
@@ -123,9 +159,9 @@ MonoBehaviour:
     height: 648
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &6
@@ -144,6 +180,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 648
     width: 1466
     height: 309
@@ -155,6 +192,19 @@ MonoBehaviour:
   - {fileID: 17}
   m_Selected: 1
   m_LastSelected: 0
+=======
+    y: 593.6
+    width: 1561.6
+    height: 425.20007
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> refs/remotes/origin/master
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,12 +295,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1466
     height: 957
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 1880
+=======
+    width: 1561.6
+    height: 1018.80005
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 6009
+>>>>>>> refs/remotes/origin/master
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,11 +324,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 5}
+<<<<<<< HEAD
+=======
+  - {fileID: 12}
+>>>>>>> refs/remotes/origin/master
   - {fileID: 2}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1466
     height: 648
   m_MinSize: {x: 200, y: 100}
@@ -277,6 +341,41 @@ MonoBehaviour:
   vertical: 0
   controlID: 1881
 --- !u!114 &12
+=======
+    width: 1561.6
+    height: 593.6
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 8096}
+  vertical: 0
+  controlID: 6010
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 309.6
+    y: 0
+    width: 835.2001
+    height: 593.6
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 16}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &13
+>>>>>>> refs/remotes/origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,22 +416,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Prefabs/npc_vehicles
+=======
+    - Assets/Car_Assets/LowPolyCarPack/Materials/PBR
+>>>>>>> refs/remotes/origin/master
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Prefabs/npc_vehicles
+=======
+  - Assets/Car_Assets/LowPolyCarPack/Materials/PBR
+>>>>>>> refs/remotes/origin/master
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Game_Dev\Unity\Downtown-Delivery
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 120}
     m_SelectedIDs: 00ab0100
     m_LastClickedID: 109312
     m_ExpandedIDs: 00000000a0690000746a000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 7e4f0600
+    m_LastClickedID: 413566
+    m_ExpandedIDs: 00000000cae00000cce00000cee00000d0e00000d2e00000d4e00000d6e0000084e10000704f0600764f060000ca9a3b
+>>>>>>> refs/remotes/origin/master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -348,7 +462,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 0}
+=======
+      m_ClientGUIView: {fileID: 6}
+>>>>>>> refs/remotes/origin/master
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -360,7 +478,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000a0690000
+=======
+    m_ExpandedIDs: 00000000cae00000cce00000cee00000d0e00000d2e00000d4e00000d6e00000
+>>>>>>> refs/remotes/origin/master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -404,7 +526,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 0}
+=======
+      m_ClientGUIView: {fileID: 6}
+>>>>>>> refs/remotes/origin/master
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -416,7 +542,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &13
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -451,13 +577,13 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 114.400024
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,6 +614,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 5cc4faff
       m_LastClickedID: -342948
       m_ExpandedIDs: 5ec8fbff66c8fbff32f2fbff5a47fcffba47fcff3856fcfff258fcff86cffcffe0d1fcff1658fdfff2e6fdff58e8fdff665ffeff36d2feffec44fffff2b7ffff36fbffff56fc000016de010046f4010096f4010024f5010058f80100
@@ -495,16 +622,32 @@ MonoBehaviour:
         m_UserAcceptedRename: 0
         m_Name: car_3_yellow
         m_OriginalName: car_3_yellow
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d8a6feff02d1feff98eafeff36effeffd257ffff9065ffff3a86ffff50fafffff4fd0000c6ff0000a801010058020100b0020100
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: car_3_yellow (5)
+        m_OriginalName: car_3_yellow (5)
+>>>>>>> refs/remotes/origin/master
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
+<<<<<<< HEAD
         m_UserData: -276378
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 4
+=======
+        m_UserData: -97512
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 0
+>>>>>>> refs/remotes/origin/master
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -514,7 +657,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -534,10 +677,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 363
     y: 73
     width: 1101
     height: 627
+=======
+    x: 309.6
+    y: 73.6
+    width: 833.2001
+    height: 572.6
+>>>>>>> refs/remotes/origin/master
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -739,9 +889,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 33.947777, y: -7.121708, z: 278.26276}
     speed: 2
     m_Value: {x: 33.947777, y: -7.121708, z: 278.26276}
+=======
+    m_Target: {x: -97.12374, y: 0.28988323, z: 436.0103}
+    speed: 2
+    m_Value: {x: -97.12374, y: 0.28988323, z: 436.0103}
+>>>>>>> refs/remotes/origin/master
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -788,6 +944,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
     m_Value: {x: 0.70710677, y: 0.00000012428674, z: -0.000000030138118, w: 0.7071068}
@@ -795,6 +952,15 @@ MonoBehaviour:
     m_Target: 123.38096
     speed: 2
     m_Value: 123.38096
+=======
+    m_Target: {x: -0.69910794, y: -0.21065553, z: 0.22873133, w: -0.64387953}
+    speed: 2
+    m_Value: {x: -0.6990987, y: -0.21065274, z: 0.22872831, w: -0.643871}
+  m_Size:
+    m_Target: 138.44821
+    speed: 2
+    m_Value: 138.44821
+>>>>>>> refs/remotes/origin/master
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -819,7 +985,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -839,10 +1005,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 363
     y: 73
     width: 1101
     height: 627
+=======
+    x: 1144.8
+    y: 73.6
+    width: 414.79993
+    height: 572.6
+>>>>>>> refs/remotes/origin/master
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -889,16 +1062,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1101
       height: 606
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 550.5, y: 303}
+=======
+      width: 414.79993
+      height: 551.6
+    m_Scale: {x: 0.27005205, y: 0.27005205}
+    m_Translation: {x: 207.39996, y: 275.8}
+>>>>>>> refs/remotes/origin/master
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -550.5
       y: -303
       width: 1101
@@ -906,12 +1087,21 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1101, y: 627}
+=======
+      x: -768
+      y: -1021.28455
+      width: 1536
+      height: 2042.5691
+    m_MinimalGUI: 1
+  m_defaultScale: 0.27005205
+  m_LastWindowPixelSize: {x: 518.4999, y: 715.75}
+>>>>>>> refs/remotes/origin/master
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
