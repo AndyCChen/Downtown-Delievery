@@ -7103,7 +7103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoint_neighbors:
   - {fileID: 170168046}
-  minDistanceToWaypoint: 15
+  minDistanceToWaypoint: 10
   minBreakingDistance: 45
   maxTurningVelocity: 15
 --- !u!1001 &756131270
