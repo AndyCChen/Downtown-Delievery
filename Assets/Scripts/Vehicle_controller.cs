@@ -21,6 +21,15 @@ public class Vehicle_controller : MonoBehaviour
     private float currentBreakingTorque;
     private float currentTurnAngle;
 
+    private AudioClip crashSound;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        crashSound = (AudioClip)Resources.Load("crash");
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         
@@ -80,6 +89,12 @@ public class Vehicle_controller : MonoBehaviour
         accelerationInput = accelInput;
         steeringInput = steerInput;
         breakingInput = breakInput;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        audioSource.clip = crashSound;
+        audioSource.Play();
     }
 }
 

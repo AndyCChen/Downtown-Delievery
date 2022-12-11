@@ -2,47 +2,63 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float startTime;
-    [SerializeField] private TMP_Text timeCounter;
+    [Header("Component")]
+    public TextMeshProUGUI timerText;
 
+    [Header("Timer Settings")]
+    public float currentTime;
     private TimeSpan timePlaying;
-    private float currentTime;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Audio Settings")]
+    private AudioClip loseSound;
+    private AudioSource audioSource;
+
+    [Header("Limit Settings")]
+    public bool hasLimit;
+    public float timerLimit;
+
+    private void Awake()
     {
-        timeCounter.text = "Time: 00:00.00";
-        startTimer();
+        loseSound = (AudioClip)Resources.Load("lose");
+        audioSource = GetComponent<AudioSource>();
     }
 
-    public void startTimer()
+    private void Start()
     {
-        currentTime = startTime;
-
-        StartCoroutine(UpdateTimer());
+       
     }
 
-    private void checkGameStatus()
+    private void Update()
     {
-        // check if player has arrived at checkpoint
-        Debug.Log("u lose, or win maybe");
-    }
+        currentTime -= Time.deltaTime;
 
-    private IEnumerator UpdateTimer()
-    {
-        while (currentTime >= 0)
+        if (hasLimit && currentTime <= timerLimit)
         {
-            currentTime -= Time.deltaTime;
-            timePlaying = TimeSpan.FromSeconds(currentTime);
-            string timerString = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
-            timeCounter.text = timerString;
-
-            yield return null;
+            currentTime = timerLimit;
+            setTimerText();
+            timerText.color = Color.black;
+            enabled = false;
+            StartCoroutine(PlaySound());
         }
 
-        checkGameStatus();
+        setTimerText();
+    }
+
+    private void setTimerText()
+    {
+        timePlaying = TimeSpan.FromSeconds(currentTime);
+        timerText.text = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
+    }
+
+    IEnumerator PlaySound()
+    {
+        audioSource.clip = loseSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Main Menu");
     }
 }
