@@ -51,7 +51,7 @@ public class Timer : MonoBehaviour
     private void setTimerText()
     {
         timePlaying = TimeSpan.FromSeconds(currentTime);
-        timerText.text = "Time: " + timePlaying.ToString("mm':'ss'.'ff");
+        timerText.text =  "Time " + timePlaying.ToString("mm':'ss':'ff");
     }
 
     IEnumerator PlaySound()
