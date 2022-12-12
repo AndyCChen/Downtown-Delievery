@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Car_Paint_Purple
+  m_Name: Car_Paint_Purple 2
   m_Shader: {fileID: 4800000, guid: a97e290cd0cec1a4cb176e474e69c1dc, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -26,8 +26,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Glossiness: 0.5
-    - _Metallic: 0
+    - _Glossiness: 0.119
+    - _Metallic: 0.541
     m_Colors:
-    - _Color: {r: 0.745283, g: 0.19967957, b: 0.19967957, a: 1}
+    - _Color: {r: 0.7924528, g: 0.7421149, b: 0.3095051, a: 1}
   m_BuildTextureStacks: []
