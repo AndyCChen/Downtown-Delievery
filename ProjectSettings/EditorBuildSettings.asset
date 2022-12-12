@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TimeUp.unity
-    guid: e8080406fa9b7a64999769779c3eff2d
+    path: Assets/Scenes/Main Menu.unity
+    guid: dbda113866eae48d5977a7b268dcb024
   - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: 44b1388d2cc014021adab03bf3ac01bc
@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/level3.unity
     guid: f63a723cfa2b3e249ab8330ac7490eb6
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: dbda113866eae48d5977a7b268dcb024
+    path: Assets/Scenes/TimeUp.unity
+    guid: e8080406fa9b7a64999769779c3eff2d
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 032981f7506ed1246a3fab7b574a693f
