@@ -4,56 +4,24 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    public Waypoint next;
-    public bool check = false;
-    private GameObject test2;
     private Transform current;
+    private GameObject arrow;
+
+    public Waypoint next;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject test2 = GameObject.Find("Arrow1");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Vector3 targetPosition = target.transform.position;
-        //targetPosition.y = transform.position.y;
-        //GameObject.Find("Arrow1").transform.LookAt(target);
-        if (check == true)
-        {
-            current= target; 
-            Debug.Log("target is : " + current);
-            GameObject.Find("Arrow").transform.LookAt(current);
-
-            check = false;
-        }
-        
-        //Debug.Log("target changed to :" + current);
+        arrow = GameObject.Find("Direction_arrow");
     }
 
     private void OnTriggerEnter(Collider other)
     {   
         if(other.tag == "Player")
         {
-            Debug.Log("Player inside");
             target = next.target;
             current = target;
-            check = true;
+            arrow.GetComponent<DirectionalArrow>().SetTarget(current);
         }
-        
-        
-        //GameObject.Find("Arrow").transform.LookAt(next.target);
-
-        // Debug.Log("trigger enter " + other.transform.name);
-        //Vehicle_controller hover = other.gameObject.GetComponent<Vehicle_controller>();
-
-        //hover.target = next;
-        //next.GetComponent<MeshRenderer>().material.color = Color.red;
-        //GetComponent<MeshRenderer>().material.color = Color.white;
-        //Debug.Log("next target is : " + next.target);
-
-        //GameObject.Find("Arrow1").transform.LookAt(next.target);
-
     }
 }
