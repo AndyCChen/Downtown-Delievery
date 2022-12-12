@@ -59,6 +59,6 @@ public class Timer : MonoBehaviour
         audioSource.clip = loseSound;
         audioSource.Play();
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("TimeUp");
     }
 }
