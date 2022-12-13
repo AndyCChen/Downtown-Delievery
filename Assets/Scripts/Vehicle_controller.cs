@@ -41,7 +41,7 @@ public class Vehicle_controller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("TimeUp");
         }
         ApplyWheelForces();
     }

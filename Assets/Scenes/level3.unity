@@ -13125,7 +13125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1039120228}
-  currentTime: 70
+  currentTime: 65
   hasLimit: 1
   timerLimit: 0
 --- !u!4 &1248844290
